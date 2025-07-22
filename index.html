@@ -1,189 +1,190 @@
+<!-- =================================================================== -->
+<!-- ARCHIVO: index.html (Página de inicio con diseño tipo Ghost)        -->
+<!-- =================================================================== -->
+
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" data-theme="light"> <!-- El tema por defecto es claro -->
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mi Blog Personal</title>
+    <title>Piero Gadiel Maquera | Contador, Emprendedor, Aprendiz</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Lora:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
     <style>
-        /* ----------------------------------------------------------------------------- */
-        /* TEMA DE MARCA PERSONAL V1 - DISEÑO MINIMALISTA Y PROFESIONAL                  */
-        /* ----------------------------------------------------------------------------- */
-
-        /* 1. PANEL DE CONTROL DE MARCA (VARIABLES CSS) */
-        /* Edita estos colores para cambiar la apariencia de todo el sitio. */
+        /* PANEL DE CONTROL DE ESTILOS - GHOST INSPIRED */
         :root {
-            --color-texto-principal: #1a1a1a;   /* Ónix: Un negro suavizado para el texto. */
-            --color-fondo:         #F8F9FA;   /* Blanco Culto: Fondo limpio y moderno. */
-            --color-acento:        #0057FF;   /* Azul Azure: Para enlaces y elementos interactivos. */
-            --color-neutral:       #6c757d;   /* Gris Ceniza: Para metadatos como fechas. */
-            --color-bordes:        #dee2e6;   /* Un gris muy claro para líneas sutiles. */
-            
-            --fuente-principal: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            --ancho-maximo: 800px; /* El ancho máximo del contenido para fácil lectura. */
+            --color-principal: #006184;
+            --fuente-cuerpo: "Inter", sans-serif;
+            --fuente-titulos: "Lora", serif;
+            --ancho-maximo: 1100px;
+            --transicion-rapida: 0.3s ease-in-out;
+            --radio-borde: 8px;
+
+            /* Modo Claro (Default) */
+            --color-fondo: #f8f9fa;
+            --color-superficie: #ffffff;
+            --color-texto: #1a1a1a;
+            --color-texto-secundario: #6c757d;
+            --color-borde: #e9ecef;
         }
 
-        /* 2. ESTILOS BASE Y RESET */
-        /* Aquí definimos la apariencia general de la página. */
+        [data-theme="dark"] {
+            --color-fondo: #121212;
+            --color-superficie: #1e1e1e;
+            --color-texto: #e0e0e0;
+            --color-texto-secundario: #a0a0a0;
+            --color-borde: #333333;
+        }
+
+        /* ESTILOS BASE */
         body {
-            font-family: var(--fuente-principal);
+            font-family: var(--fuente-cuerpo);
             background-color: var(--color-fondo);
-            color: var(--color-texto-principal);
-            line-height: 1.7; /* Espaciado entre líneas para mejorar la legibilidad. */
+            color: var(--color-texto);
             margin: 0;
-            padding: 0;
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
+            line-height: 1.7;
+            transition: background-color var(--transicion-rapida), color var(--transicion-rapida);
         }
-
-        /* 3. CONTENEDOR PRINCIPAL */
-        /* Centra el contenido y limita su ancho. */
-        .container {
-            width: 90%;
-            max-width: var(--ancho-maximo);
-            margin: 0 auto; /* Centra el contenedor horizontalmente. */
-            padding: 40px 0;
-        }
-
-        /* 4. ENCABEZADO (HEADER) */
-        header {
-            text-align: center;
-            padding: 40px 0;
-            border-bottom: 1px solid var(--color-bordes);
-        }
-
-        header h1 {
-            margin: 0;
-            font-size: 2.5rem;
-            font-weight: 700;
-        }
-
-        /* 5. CONTENIDO PRINCIPAL (MAIN) */
-        main {
-            flex-grow: 1; /* Hace que el contenido principal ocupe el espacio disponible. */
-        }
-
-        /* 6. ESTILOS PARA LA LISTA DE POSTS */
-        .post-summary {
-            margin-bottom: 50px;
-            padding-bottom: 50px;
-            border-bottom: 1px solid var(--color-bordes);
-        }
-
-        .post-summary:last-child {
-            border-bottom: none; /* Elimina la línea del último post. */
-            margin-bottom: 0;
-        }
-
-        .post-meta {
-            color: var(--color-neutral);
-            font-size: 0.9rem;
-            margin-bottom: 10px;
-        }
-
-        .post-summary h2 {
-            margin-top: 0;
-            margin-bottom: 15px;
-            font-size: 1.8rem;
-        }
-
-        .post-summary h2 a {
-            text-decoration: none;
-            color: var(--color-texto-principal);
-            transition: color 0.2s ease-in-out;
-        }
-
-        .post-summary h2 a:hover {
-            color: var(--color-acento); /* El título se vuelve azul al pasar el ratón. */
-        }
-
-        .read-more {
-            display: inline-block;
-            margin-top: 20px;
-            font-weight: 700;
-            color: var(--color-acento);
-            text-decoration: none;
-            transition: transform 0.2s ease-in-out;
-        }
+        .container { width: 90%; max-width: var(--ancho-maximo); margin: 0 auto; }
+        h1, h2, h3 { font-family: var(--fuente-titulos); font-weight: 600; line-height: 1.2; }
         
-        .read-more:hover {
-            transform: translateX(5px); /* Pequeño efecto de movimiento al pasar el ratón. */
-        }
+        /* HEADER Y NAVEGACIÓN */
+        .site-header { padding: 1.5rem 0; border-bottom: 1px solid var(--color-borde); }
+        .header-content { display: flex; justify-content: space-between; align-items: center; }
+        .site-title { font-size: 1.5rem; text-decoration: none; color: var(--color-texto); font-weight: 700; }
+        .main-nav a { color: var(--color-texto); text-decoration: none; font-weight: 600; margin-left: 1.5rem; }
+        .nav-right { display: flex; align-items: center; gap: 1.5rem; }
+        #theme-toggle { background: none; border: none; cursor: pointer; color: var(--color-texto-secundario); padding: 0; }
+        #theme-toggle:hover { color: var(--color-principal); }
 
-        /* 7. PIE DE PÁGINA (FOOTER) */
-        footer {
-            text-align: center;
-            padding: 40px 0;
-            border-top: 1px solid var(--color-bordes);
-            color: var(--color-neutral);
-            font-size: 0.9rem;
-        }
+        /* HERO SECTION */
+        .hero { text-align: center; padding: 6rem 1rem; }
+        .hero h1 { font-size: clamp(2.8rem, 6vw, 4.5rem); margin-bottom: 1rem; }
+        .hero p { font-size: 1.25rem; color: var(--color-texto-secundario); max-width: 650px; margin: 0 auto; }
         
-        footer a {
-            color: var(--color-acento);
+        /* POST GRID */
+        .post-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            padding: 2rem 0;
+        }
+        .post-card {
+            background-color: var(--color-superficie);
+            border-radius: var(--radio-borde);
+            overflow: hidden;
             text-decoration: none;
+            color: var(--color-texto);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            transition: transform var(--transicion-rapida), box-shadow var(--transicion-rapida);
+            border: 1px solid var(--color-borde);
         }
-        
-        footer a:hover {
-            text-decoration: underline;
-        }
+        .post-card:hover { transform: translateY(-5px); box-shadow: 0 8px 25px rgba(0,0,0,0.1); }
+        .post-card-image { width: 100%; height: 200px; object-fit: cover; }
+        .post-card-content { padding: 1.5rem; }
+        .post-card-category { color: var(--color-principal); font-weight: 700; font-size: 0.8rem; text-transform: uppercase; margin-bottom: 0.5rem; }
+        .post-card-title { font-size: 1.5rem; margin: 0 0 0.5rem 0; }
+        .post-card-excerpt { color: var(--color-texto-secundario); font-size: 0.95rem; }
 
+        /* FOOTER */
+        .site-footer { text-align: center; padding: 3rem 0; margin-top: 4rem; border-top: 1px solid var(--color-borde); color: var(--color-texto-secundario); }
     </style>
 </head>
 <body>
-
-    <!-- =================================================================== -->
-    <!-- ENCABEZADO: Cambia el título de tu blog aquí.                        -->
-    <!-- =================================================================== -->
-    <header>
-        <div class="container">
-            <h1>El Blog de [Tu Nombre]</h1>
-            <p>Un espacio para registrar éxitos, historias y ensayos.</p>
+    <header class="site-header">
+        <div class="container header-content">
+            <a href="index.html" class="site-title">Piero Gadiel</a>
+            <div class="nav-right">
+                <nav class="main-nav">
+                    <a href="index.html">Inicio</a>
+                    <a href="about.html">Sobre Mí</a>
+                    <a href="blog.html">Blog</a>
+                    <a href="proyectos.html">Proyectos</a>
+                </nav>
+                <button id="theme-toggle" aria-label="Cambiar tema">
+                    <i data-lucide="sun" class="light-icon"></i>
+                    <i data-lucide="moon" class="dark-icon" style="display:none;"></i>
+                </button>
+            </div>
         </div>
     </header>
 
-    <!-- =================================================================== -->
-    <!-- CONTENIDO PRINCIPAL: Aquí van todos tus posts.                      -->
-    <!-- =================================================================== -->
     <main>
+        <section class="hero">
+            <h1>Un diario de crecimiento, un paso a la vez.</h1>
+            <p>Explorando la intersección entre contabilidad, tecnología y propósito. Comparto mis aprendizajes para ayudar a otros a navegar su propio camino.</p>
+        </section>
+
         <div class="container">
-
-            <!-- LISTA DE POSTS -->
-            <!-- Para añadir un nuevo post, copia y pega todo el bloque <article> -->
-            <!-- y ponlo encima del anterior. Luego, edita su contenido. -->
-
-            <!-- EJEMPLO DE POST 1 -->
-            <article class="post-summary">
-                <p class="post-meta">21 de Julio, 2025</p>
-                <h2><a href="#">Mi Primer Éxito: Lanzando este Blog con GitHub Pages</a></h2>
-                <p>Hoy marco un hito importante en mi viaje profesional. No se trata solo de escribir código, sino de construir una plataforma para compartir conocimiento. En este post, detallo el proceso estratégico y técnico detrás de la creación de este espacio, desde la definición de la marca personal hasta la implementación del código que estás viendo ahora mismo...</p>
-                <a href="#" class="read-more">Leer más &rarr;</a>
-            </article>
-
-            <!-- EJEMPLO DE POST 2 -->
-            <article class="post-summary">
-                <p class="post-meta">15 de Julio, 2025</p>
-                <h2><a href="#">La Gestión de Proyectos como Superpoder en la Tecnología</a></h2>
-                <p>En el mundo del desarrollo de software, a menudo nos obsesionamos con la sintaxis y los frameworks. Sin embargo, he descubierto que la habilidad más infravalorada y potente es la gestión de proyectos. Un código elegante es inútil si no resuelve un problema real, a tiempo y dentro del presupuesto. Aquí exploro los principios que transformaron mi manera de trabajar...</p>
-                <a href="#" class="read-more">Leer más &rarr;</a>
-            </article>
-
+            <!-- INICIO DE ARTÍCULOS DESTACADOS -->
+            <div class="post-grid">
+                <a href="#" class="post-card">
+                    <img src="https://placehold.co/600x400/006184/FFFFFF?text=Homeser" alt="Imagen destacada del artículo sobre Homeser" class="post-card-image" loading="lazy">
+                    <div class="post-card-content">
+                        <p class="post-card-category">Emprendimiento</p>
+                        <h2 class="post-card-title">MVP de Homeser en 4 Pasos (Fallidos y Corregidos)</h2>
+                        <p class="post-card-excerpt">Un caso de estudio real sobre cómo la teoría de Lean Startup se enfrenta a la realidad y las lecciones que me salvaron...</p>
+                    </div>
+                </a>
+                <a href="#" class="post-card">
+                    <img src="https://placehold.co/600x400/1a1a1a/FFFFFF?text=Work+&+Travel" alt="Imagen destacada del artículo sobre Work & Travel" class="post-card-image" loading="lazy">
+                    <div class="post-card-content">
+                        <p class="post-card-category">Experiencias Intl.</p>
+                        <h2 class="post-card-title">Lo que Nadie te Cuenta del Work & Travel en el Invierno de NY</h2>
+                        <p class="post-card-excerpt">Una historia sobre resiliencia, comunicación y la fortaleza mental que se forja a menos cero grados...</p>
+                    </div>
+                </a>
+                <a href="#" class="post-card">
+                    <img src="https://placehold.co/600x400/6c757d/FFFFFF?text=Contabilidad" alt="Imagen destacada del artículo sobre hábitos de contabilidad" class="post-card-image" loading="lazy">
+                    <div class="post-card-content">
+                        <p class="post-card-category">Aprendizaje & Carrera</p>
+                        <h2 class="post-card-title">Mis 3 Hábitos para Aprobar Contabilidad I sin Quemarte</h2>
+                        <p class="post-card-excerpt">Olvídate de memorizar. Te comparto el sistema que usé para entender los principios y mantener la calma...</p>
+                    </div>
+                </a>
+            </div>
         </div>
     </main>
 
-    <!-- =================================================================== -->
-    <!-- PIE DE PÁGINA: Añade tus enlaces a redes sociales aquí.             -->
-    <!-- =================================================================== -->
-    <footer>
+    <footer class="site-footer">
         <div class="container">
-            <p>&copy; 2025 [Tu Nombre]. Todos los derechos reservados.</p>
-            <p>
-                <a href="#">LinkedIn</a> &bull; 
-                <a href="#">GitHub</a> &bull; 
-                <a href="#">Twitter</a>
-            </p>
+            <p>&copy; 2025 Piero Gadiel Maquera Limaco. Todos los derechos reservados.</p>
         </div>
     </footer>
 
+    <script>
+        (() => {
+            // LÓGICA PARA MODO OSCURO
+            const themeToggle = document.getElementById('theme-toggle');
+            const lightIcon = document.querySelector('.light-icon');
+            const darkIcon = document.querySelector('.dark-icon');
+            const currentTheme = localStorage.getItem('theme') || 'light';
+
+            document.documentElement.setAttribute('data-theme', currentTheme);
+            if (currentTheme === 'dark') {
+                lightIcon.style.display = 'none';
+                darkIcon.style.display = 'inline-block';
+            }
+
+            themeToggle.addEventListener('click', () => {
+                let theme = document.documentElement.getAttribute('data-theme');
+                if (theme === 'light') {
+                    theme = 'dark';
+                    lightIcon.style.display = 'none';
+                    darkIcon.style.display = 'inline-block';
+                } else {
+                    theme = 'light';
+                    darkIcon.style.display = 'none';
+                    lightIcon.style.display = 'inline-block';
+                }
+                document.documentElement.setAttribute('data-theme', theme);
+                localStorage.setItem('theme', theme);
+            });
+            
+            lucide.createIcons();
+        })();
+    </script>
 </body>
 </html>
