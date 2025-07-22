@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sobre Mí | Piero Gadiel Maquera</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Lora:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        /* PANEL DE CONTROL DE ESTILOS - GHOST INSPIRED */
+        :root {
+            --color-principal: #006184;
+            --fuente-cuerpo: "Inter", sans-serif;
+            --fuente-titulos: "Lora", serif;
+            --ancho-maximo: 1100px;
+            --ancho-contenido: 720px;
+            --transicion-rapida: 0.3s ease-in-out;
+            --radio-borde: 8px;
+
+            /* Modo Claro (Default) */
+            --color-fondo: #f8f9fa;
+            --color-superficie: #ffffff;
+            --color-texto: #1a1a1a;
+            --color-texto-secundario: #6c757d;
+            --color-borde: #e9ecef;
+        }
+
+        [data-theme="dark"] {
+            --color-fondo: #121212;
+            --color-superficie: #1e1e1e;
+            --color-texto: #e0e0e0;
+            --color-texto-secundario: #a0a0a0;
+            --color-borde: #333333;
+        }
+
+        /* ESTILOS BASE */
+        body {
+            font-family: var(--fuente-cuerpo);
+            background-color: var(--color-fondo);
+            color: var(--color-texto);
+            margin: 0;
+            line-height: 1.8;
+            font-size: 1.1rem;
+            transition: background-color var(--transicion-rapida), color var(--transicion-rapida);
+        }
+        .container { width: 90%; max-width: var(--ancho-maximo); margin: 0 auto; }
+        h1, h2, h3 { font-family: var(--fuente-titulos); font-weight: 600; line-height: 1.2; }
+        
+        /* HEADER Y NAVEGACIÓN */
+        .site-header { padding: 1.5rem 0; border-bottom: 1px solid var(--color-borde); }
+        .header-content { display: flex; justify-content: space-between; align-items: center; }
+        .site-title { font-size: 1.5rem; text-decoration: none; color: var(--color-texto); font-weight: 700; }
+        .main-nav a { color: var(--color-texto); text-decoration: none; font-weight: 600; margin-left: 1.5rem; }
+        .nav-right { display: flex; align-items: center; gap: 1.5rem; }
+        #theme-toggle { background: none; border: none; cursor: pointer; color: var(--color-texto-secundario); padding: 0; }
+        #theme-toggle:hover { color: var(--color-principal); }
+
+        /* CONTENIDO DE LA PÁGINA 'SOBRE MÍ' */
+        .about-container {
+            max-width: var(--ancho-contenido);
+            margin: 4rem auto;
+        }
+        .about-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+        .about-header h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+        }
+        .about-header p {
+            font-size: 1.25rem;
+            color: var(--color-texto-secundario);
+        }
+        .profile-image {
+            display: block;
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            margin: 0 auto 2rem auto;
+            object-fit: cover;
+        }
+        .about-content h2 {
+            font-size: 2rem;
+            margin-top: 3rem;
+            border-bottom: 2px solid var(--color-borde);
+            padding-bottom: 0.5rem;
+        }
+        .about-content blockquote {
+            border-left: 3px solid var(--color-principal);
+            padding-left: 1.5rem;
+            margin: 2rem 0;
+            font-style: italic;
+            color: var(--color-texto-secundario);
+        }
+
+        /* FOOTER */
+        .site-footer { text-align: center; padding: 3rem 0; margin-top: 4rem; border-top: 1px solid var(--color-borde); color: var(--color-texto-secundario); }
+    </style>
+</head>
+<body>
+    <header class="site-header">
+        <div class="container header-content">
+            <a href="index.html" class="site-title">Piero Gadiel</a>
+            <div class="nav-right">
+                <nav class="main-nav">
+                    <a href="index.html">Inicio</a>
+                    <a href="about.html">Sobre Mí</a>
+                    <a href="blog.html">Blog</a>
+                    <a href="proyectos.html">Proyectos</a>
+                </nav>
+                <button id="theme-toggle" aria-label="Cambiar tema">
+                    <i data-lucide="sun" class="light-icon"></i>
+                    <i data-lucide="moon" class="dark-icon" style="display:none;"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="about-container">
+            <header class="about-header">
+                <img src="https://placehold.co/120x120/006184/F8F9FA?text=PG" alt="Foto de perfil de Piero Gadiel Maquera" class="profile-image" loading="lazy">
+                <h1>Mi historia es un viaje de puntos conectados.</h1>
+                <p>Un contador por formación, un emprendedor por vocación y un eterno aprendiz por elección.</p>
+            </header>
+
+            <div class="about-content">
+                <p>Soy Piero Gadiel Maquera Limaco. Mi camino no ha sido una línea recta, sino una colección de experiencias que, a primera vista, podrían parecer inconexas: la rigurosidad de la contabilidad, la incertidumbre del emprendimiento, la disciplina del deporte y el propósito del servicio. Con el tiempo, he descubierto que cada una de estas piezas es un punto en un mapa que solo cobra sentido al mirar atrás.</p>
+                <p>Este espacio es mi intento de compartir ese mapa, no como una guía definitiva, sino como una invitación a que otros se atrevan a conectar sus propios puntos.</p>
+                
+                <h2>Visión y Valores</h2>
+                <p>Creo firmemente en el crecimiento integral. Para mí, el éxito profesional no tiene sentido sin un propósito espiritual, equilibrio físico y bienestar emocional. Mi visión es construir soluciones que generen oportunidades, especialmente para jóvenes técnicos y emprendedores que, como yo, buscan abrirse camino.</p>
+                <blockquote>"Primero nos forjamos en el servicio a los demás, y luego nos perfeccionamos en lo que somos."</blockquote>
+
+                <h2>Hitos de Transformación</h2>
+                <p>Cada hito en mi vida ha sido menos un logro y más una lección fundamental:</p>
+                <ul>
+                    <li><strong>Work & Travel (Florida y Nueva York):</strong> Aquí aprendí sobre disciplina, resiliencia y el poder de la comunicación para derribar barreras culturales y personales.</li>
+                    <li><strong>Lanzamiento de Homser:</strong> Fue mi maestría en humildad. Me enseñó a enamorarme del problema del cliente, no de mi propia solución, y a entender que el fracaso es solo feedback.</li>
+                    <li><strong>Liderazgo Espiritual:</strong> Descubrí que el liderazgo más efectivo no es el que se impone, sino el que sirve, escucha e inspira a otros a encontrar su propia luz.</li>
+                </ul>
+                <p>Gracias por acompañarme en este viaje. Si algo de lo que lees aquí resuena contigo, conversemos.</p>
+            </div>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <p>&copy; 2025 Piero Gadiel Maquera Limaco. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        (() => {
+            // LÓGICA PARA MODO OSCURO
+            const themeToggle = document.getElementById('theme-toggle');
+            const lightIcon = document.querySelector('.light-icon');
+            const darkIcon = document.querySelector('.dark-icon');
+            const currentTheme = localStorage.getItem('theme') || 'light';
+
+            document.documentElement.setAttribute('data-theme', currentTheme);
+            if (currentTheme === 'dark') {
+                lightIcon.style.display = 'none';
+                darkIcon.style.display = 'inline-block';
+            }
+
+            themeToggle.addEventListener('click', () => {
+                let theme = document.documentElement.getAttribute('data-theme');
+                if (theme === 'light') {
+                    theme = 'dark';
+                    lightIcon.style.display = 'none';
+                    darkIcon.style.display = 'inline-block';
+                } else {
+                    theme = 'light';
+                    darkIcon.style.display = 'none';
+                    lightIcon.style.display = 'inline-block';
+                }
+                document.documentElement.setAttribute('data-theme', theme);
+                localStorage.setItem('theme', theme);
+            });
+            
+            lucide.createIcons();
+        })();
+    </script>
+</body>
+</html>
