@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog | Piero Gadiel Maquera</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Lora:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        /* Estilos base, header, footer, post-grid (idénticos a index.html) */
+        :root { --color-principal: #006184; --fuente-cuerpo: "Inter", sans-serif; --fuente-titulos: "Lora", serif; --ancho-maximo: 1100px; --transicion-rapida: 0.3s ease-in-out; --radio-borde: 8px; --color-fondo: #f8f9fa; --color-superficie: #ffffff; --color-texto: #1a1a1a; --color-texto-secundario: #6c757d; --color-borde: #e9ecef; }
+        [data-theme="dark"] { --color-fondo: #121212; --color-superficie: #1e1e1e; --color-texto: #e0e0e0; --color-texto-secundario: #a0a0a0; --color-borde: #333333; }
+        body { font-family: var(--fuente-cuerpo); background-color: var(--color-fondo); color: var(--color-texto); margin: 0; line-height: 1.7; transition: background-color var(--transicion-rapida), color var(--transicion-rapida); }
+        .container { width: 90%; max-width: var(--ancho-maximo); margin: 0 auto; }
+        .site-header { padding: 1.5rem 0; border-bottom: 1px solid var(--color-borde); }
+        .header-content { display: flex; justify-content: space-between; align-items: center; }
+        .site-title { font-size: 1.5rem; text-decoration: none; color: var(--color-texto); font-weight: 700; }
+        .main-nav a { color: var(--color-texto); text-decoration: none; font-weight: 600; margin-left: 1.5rem; }
+        .nav-right { display: flex; align-items: center; gap: 1.5rem; }
+        #theme-toggle { background: none; border: none; cursor: pointer; color: var(--color-texto-secundario); padding: 0; }
+        #theme-toggle:hover { color: var(--color-principal); }
+        .post-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem; padding: 2rem 0; }
+        .post-card { background-color: var(--color-superficie); border-radius: var(--radio-borde); overflow: hidden; text-decoration: none; color: var(--color-texto); box-shadow: 0 4px 15px rgba(0,0,0,0.05); transition: transform var(--transicion-rapida), box-shadow var(--transicion-rapida); border: 1px solid var(--color-borde); }
+        .post-card:hover { transform: translateY(-5px); box-shadow: 0 8px 25px rgba(0,0,0,0.1); }
+        .post-card-image { width: 100%; height: 200px; object-fit: cover; }
+        .post-card-content { padding: 1.5rem; }
+        .post-card-category { color: var(--color-principal); font-weight: 700; font-size: 0.8rem; text-transform: uppercase; margin-bottom: 0.5rem; }
+        .post-card-title { font-size: 1.5rem; margin: 0 0 0.5rem 0; font-family: var(--fuente-titulos); }
+        .post-card-excerpt { color: var(--color-texto-secundario); font-size: 0.95rem; }
+        .site-footer { text-align: center; padding: 3rem 0; margin-top: 4rem; border-top: 1px solid var(--color-borde); color: var(--color-texto-secundario); }
+
+        /* Estilos específicos para la página del Blog */
+        .blog-header { text-align: center; padding: 4rem 0; }
+        .blog-header h1 { font-family: var(--fuente-titulos); font-size: 3.5rem; }
+        .filters { display: flex; justify-content: center; gap: 1rem; margin-bottom: 3rem; flex-wrap: wrap; }
+        .filter-btn { background: none; border: 1px solid var(--color-borde); padding: 0.5rem 1rem; border-radius: 50px; cursor: pointer; font-weight: 600; transition: all var(--transicion-rapida); color: var(--color-texto-secundario); }
+        .filter-btn:hover { background-color: var(--color-borde); color: var(--color-texto); }
+        .filter-btn.active { background-color: var(--color-principal); color: white; border-color: var(--color-principal); }
+    </style>
+</head>
+<body>
+    <header class="site-header">
+        <div class="container header-content">
+            <a href="index.html" class="site-title">Piero Gadiel Maquera</a>
+            <div class="nav-right">
+                <nav class="main-nav">
+                    <a href="index.html">Inicio</a>
+                    <a href="about.html">Sobre Mí</a>
+                    <a href="blog.html">Blog</a>
+                    <a href="proyectos.html">Proyectos</a>
+                </nav>
+                <button id="theme-toggle" aria-label="Cambiar tema">
+                    <i data-lucide="sun" class="light-icon"></i>
+                    <i data-lucide="moon" class="dark-icon" style="display:none;"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <div class="blog-header">
+                <h1>Rutas de Crecimiento</h1>
+                <p>Explora los aprendizajes por temas. Cada artículo es una pieza del rompecabezas.</p>
+            </div>
+
+            <div class="filters">
+                <button class="filter-btn active" data-filter="all">Todos</button>
+                <button class="filter-btn" data-filter="aprendizaje">Aprendizaje</button>
+                <button class="filter-btn" data-filter="emprendimiento">Emprendimiento</button>
+                <button class="filter-btn" data-filter="experiencias">Experiencias</button>
+                <button class="filter-btn" data-filter="reflexiones">Reflexiones</button>
+            </div>
+
+            <div class="post-grid">
+                <!-- LISTA DE POSTS -->
+            </div>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <p>&copy; 2025 Piero Gadiel Maquera Limaco.</p>
+        </div>
+    </footer>
+
+    <script>
+        (() => {
+            // LÓGICA PARA MODO OSCURO (igual que en index.html)
+            const themeToggle = document.getElementById('theme-toggle');
+            const lightIcon = document.querySelector('.light-icon');
+            const darkIcon = document.querySelector('.dark-icon');
+            const storedTheme = localStorage.getItem('theme') || 'light';
+            document.documentElement.setAttribute('data-theme', storedTheme);
+            if (storedTheme === 'dark') { lightIcon.style.display = 'none'; darkIcon.style.display = 'inline-block'; }
+            themeToggle.addEventListener('click', () => { let theme = document.documentElement.getAttribute('data-theme') === 'light' ? 'dark' : 'light'; document.documentElement.setAttribute('data-theme', theme); localStorage.setItem('theme', theme); if (theme === 'dark') { lightIcon.style.display = 'none'; darkIcon.style.display = 'inline-block'; } else { darkIcon.style.display = 'none'; lightIcon.style.display = 'inline-block'; } });
+
+            // LÓGICA PARA FILTROS Y RENDERIZADO DE POSTS
+            const posts = [
+                {
+                    url: '#',
+                    imgSrc: 'https://placehold.co/600x400/006184/FFFFFF?text=Homeser',
+                    imgAlt: 'Imagen sobre Homeser',
+                    category: 'emprendimiento',
+                    title: 'MVP de Homeser en 4 Pasos (Fallidos y Corregidos)',
+                    excerpt: 'Un caso de estudio real sobre cómo la teoría de Lean Startup se enfrenta a la realidad...'
+                },
+                {
+                    url: '#',
+                    imgSrc: 'https://placehold.co/600x400/1a1a1a/FFFFFF?text=Work+&+Travel',
+                    imgAlt: 'Imagen sobre Work & Travel',
+                    category: 'experiencias',
+                    title: 'Lo que Nadie te Cuenta del Work & Travel en el Invierno de NY',
+                    excerpt: 'Una historia sobre resiliencia, comunicación y la fortaleza mental que se forja a menos cero grados...'
+                },
+                {
+                    url: '#',
+                    imgSrc: 'https://placehold.co/600x400/6c757d/FFFFFF?text=Contabilidad',
+                    imgAlt: 'Imagen sobre hábitos de contabilidad',
+                    category: 'aprendizaje',
+                    title: 'Mis 3 Hábitos para Aprobar Contabilidad I sin Quemarte',
+                    excerpt: 'Olvídate de memorizar. Te comparto el sistema que usé para entender los principios y mantener la calma...'
+                }
+            ];
+
+            const postGrid = document.querySelector('.post-grid');
+            const filterContainer = document.querySelector('.filters');
+
+            const renderPosts = (filter = 'all') => {
+                postGrid.innerHTML = '';
+                const filteredPosts = filter === 'all' ? posts : posts.filter(p => p.category === filter);
+                
+                filteredPosts.forEach(post => {
+                    const postCard = document.createElement('a');
+                    postCard.href = post.url;
+                    postCard.className = 'post-card';
+                    postCard.innerHTML = `
+                        <img src="${post.imgSrc}" alt="${post.imgAlt}" class="post-card-image" loading="lazy">
+                        <div class="post-card-content">
+                            <p class="post-card-category">${post.category.toUpperCase()}</p>
+                            <h2 class="post-card-title">${post.title}</h2>
+                            <p class="post-card-excerpt">${post.excerpt}</p>
+                        </div>
+                    `;
+                    postGrid.appendChild(postCard);
+                });
+            };
+
+            filterContainer.addEventListener('click', (event) => {
+                if (event.target.classList.contains('filter-btn')) {
+                    filterContainer.querySelector('.active').classList.remove('active');
+                    event.target.classList.add('active');
+                    renderPosts(event.target.dataset.filter);
+                }
+            });
+
+            renderPosts(); // Render inicial
+            lucide.createIcons();
+        })();
+    </script>
+</body>
+</html>
