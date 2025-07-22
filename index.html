@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Blog Personal</title>
+    <style>
+        /* ----------------------------------------------------------------------------- */
+        /* TEMA DE MARCA PERSONAL V1 - DISEÑO MINIMALISTA Y PROFESIONAL                  */
+        /* ----------------------------------------------------------------------------- */
+
+        /* 1. PANEL DE CONTROL DE MARCA (VARIABLES CSS) */
+        /* Edita estos colores para cambiar la apariencia de todo el sitio. */
+        :root {
+            --color-texto-principal: #1a1a1a;   /* Ónix: Un negro suavizado para el texto. */
+            --color-fondo:         #F8F9FA;   /* Blanco Culto: Fondo limpio y moderno. */
+            --color-acento:        #0057FF;   /* Azul Azure: Para enlaces y elementos interactivos. */
+            --color-neutral:       #6c757d;   /* Gris Ceniza: Para metadatos como fechas. */
+            --color-bordes:        #dee2e6;   /* Un gris muy claro para líneas sutiles. */
+            
+            --fuente-principal: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            --ancho-maximo: 800px; /* El ancho máximo del contenido para fácil lectura. */
+        }
+
+        /* 2. ESTILOS BASE Y RESET */
+        /* Aquí definimos la apariencia general de la página. */
+        body {
+            font-family: var(--fuente-principal);
+            background-color: var(--color-fondo);
+            color: var(--color-texto-principal);
+            line-height: 1.7; /* Espaciado entre líneas para mejorar la legibilidad. */
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* 3. CONTENEDOR PRINCIPAL */
+        /* Centra el contenido y limita su ancho. */
+        .container {
+            width: 90%;
+            max-width: var(--ancho-maximo);
+            margin: 0 auto; /* Centra el contenedor horizontalmente. */
+            padding: 40px 0;
+        }
+
+        /* 4. ENCABEZADO (HEADER) */
+        header {
+            text-align: center;
+            padding: 40px 0;
+            border-bottom: 1px solid var(--color-bordes);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+            font-weight: 700;
+        }
+
+        /* 5. CONTENIDO PRINCIPAL (MAIN) */
+        main {
+            flex-grow: 1; /* Hace que el contenido principal ocupe el espacio disponible. */
+        }
+
+        /* 6. ESTILOS PARA LA LISTA DE POSTS */
+        .post-summary {
+            margin-bottom: 50px;
+            padding-bottom: 50px;
+            border-bottom: 1px solid var(--color-bordes);
+        }
+
+        .post-summary:last-child {
+            border-bottom: none; /* Elimina la línea del último post. */
+            margin-bottom: 0;
+        }
+
+        .post-meta {
+            color: var(--color-neutral);
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+        }
+
+        .post-summary h2 {
+            margin-top: 0;
+            margin-bottom: 15px;
+            font-size: 1.8rem;
+        }
+
+        .post-summary h2 a {
+            text-decoration: none;
+            color: var(--color-texto-principal);
+            transition: color 0.2s ease-in-out;
+        }
+
+        .post-summary h2 a:hover {
+            color: var(--color-acento); /* El título se vuelve azul al pasar el ratón. */
+        }
+
+        .read-more {
+            display: inline-block;
+            margin-top: 20px;
+            font-weight: 700;
+            color: var(--color-acento);
+            text-decoration: none;
+            transition: transform 0.2s ease-in-out;
+        }
+        
+        .read-more:hover {
+            transform: translateX(5px); /* Pequeño efecto de movimiento al pasar el ratón. */
+        }
+
+        /* 7. PIE DE PÁGINA (FOOTER) */
+        footer {
+            text-align: center;
+            padding: 40px 0;
+            border-top: 1px solid var(--color-bordes);
+            color: var(--color-neutral);
+            font-size: 0.9rem;
+        }
+        
+        footer a {
+            color: var(--color-acento);
+            text-decoration: none;
+        }
+        
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- =================================================================== -->
+    <!-- ENCABEZADO: Cambia el título de tu blog aquí.                        -->
+    <!-- =================================================================== -->
+    <header>
+        <div class="container">
+            <h1>El Blog de [Tu Nombre]</h1>
+            <p>Un espacio para registrar éxitos, historias y ensayos.</p>
+        </div>
+    </header>
+
+    <!-- =================================================================== -->
+    <!-- CONTENIDO PRINCIPAL: Aquí van todos tus posts.                      -->
+    <!-- =================================================================== -->
+    <main>
+        <div class="container">
+
+            <!-- LISTA DE POSTS -->
+            <!-- Para añadir un nuevo post, copia y pega todo el bloque <article> -->
+            <!-- y ponlo encima del anterior. Luego, edita su contenido. -->
+
+            <!-- EJEMPLO DE POST 1 -->
+            <article class="post-summary">
+                <p class="post-meta">21 de Julio, 2025</p>
+                <h2><a href="#">Mi Primer Éxito: Lanzando este Blog con GitHub Pages</a></h2>
+                <p>Hoy marco un hito importante en mi viaje profesional. No se trata solo de escribir código, sino de construir una plataforma para compartir conocimiento. En este post, detallo el proceso estratégico y técnico detrás de la creación de este espacio, desde la definición de la marca personal hasta la implementación del código que estás viendo ahora mismo...</p>
+                <a href="#" class="read-more">Leer más &rarr;</a>
+            </article>
+
+            <!-- EJEMPLO DE POST 2 -->
+            <article class="post-summary">
+                <p class="post-meta">15 de Julio, 2025</p>
+                <h2><a href="#">La Gestión de Proyectos como Superpoder en la Tecnología</a></h2>
+                <p>En el mundo del desarrollo de software, a menudo nos obsesionamos con la sintaxis y los frameworks. Sin embargo, he descubierto que la habilidad más infravalorada y potente es la gestión de proyectos. Un código elegante es inútil si no resuelve un problema real, a tiempo y dentro del presupuesto. Aquí exploro los principios que transformaron mi manera de trabajar...</p>
+                <a href="#" class="read-more">Leer más &rarr;</a>
+            </article>
+
+        </div>
+    </main>
+
+    <!-- =================================================================== -->
+    <!-- PIE DE PÁGINA: Añade tus enlaces a redes sociales aquí.             -->
+    <!-- =================================================================== -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 [Tu Nombre]. Todos los derechos reservados.</p>
+            <p>
+                <a href="#">LinkedIn</a> &bull; 
+                <a href="#">GitHub</a> &bull; 
+                <a href="#">Twitter</a>
+            </p>
+        </div>
+    </footer>
+
+</body>
+</html>
